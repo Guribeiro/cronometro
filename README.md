@@ -15,9 +15,9 @@ You will also see any lint errors in the console.
 
 ## Cronômetro Digital
 
- <img src="./src/assets/Readme/cronometro1.PNG" alt="cronometro" >
+ <img src="./src/assets/readme/cronometro1.PNG" alt="cronometro" >
 
 <h2>Start and Reset any time</h2>
 
-<img src="./src/assets/Readme/cronometro2.PNG" alt="cronometro" >
+<img src="./src/assets/readme/cronometro2.PNG" alt="cronometro" >
 
