@@ -1,0 +1,59 @@
+body{
+    background: #ecf0f1;
+}
+.App{
+    height: 100%;
+    width: 100%;
+    max-width: 1650px;
+    margin: 60px auto;
+    background: #3498db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.App figure{
+    width: 40%;
+    text-align: center;
+    padding: 25px;
+}
+
+.App figcaption{
+    border: 1px solid white;
+    text-align: center;
+    font-size: 52px;
+    margin: 0 auto;
+    width: 38%;
+    position: relative;
+    top: -190px;
+    border-radius: 50px;
+    color: white;
+}
+
+.App figure img{
+    width: 50%;
+}
+
+.controllers{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+.controllers button{
+    width: 30%;
+    height: 60px;
+    padding: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: white;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    transition: 0.1s;
+}
+
+.controllers button:active{
+    transform: translateY(14px);
+}
