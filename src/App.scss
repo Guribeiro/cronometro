@@ -1,0 +1,14 @@
+$primary-color: #4b4b4b;
+
+@import './components/Header/style';
+
+body{
+
+    background-color:$primary-color;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+
+    font-size: 1.6rem;
+}

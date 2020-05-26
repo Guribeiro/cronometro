@@ -1,0 +1,70 @@
+$header-color: #535c68;
+$font-menu: #fff;
+
+@mixin flexDisplay() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin standardFormat() {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    background-color: $header-color;
+    width: 100%;
+    @include flexDisplay();
+
+    div {
+        width: 60%;
+    }
+    nav {
+        font-size: 1.1rem;
+        width: 40%;
+        min-width: 678px;
+        height: 8vh;
+        @include flexDisplay();
+        justify-content: space-evenly;
+
+        .container-menu {
+            @include standardFormat();
+        }
+
+        .container-menu-config {
+            width: 40%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            padding: 2.4rem;
+            transition: all 250ms linear 0s;
+        }
+
+        ul {
+            @include flexDisplay();
+            @extend .container-menu;
+
+            li {
+                @include flexDisplay();
+                @include standardFormat();
+                cursor: pointer;
+
+                &:hover {
+                    background-color: lighten($header-color, 10);
+                }
+                
+                .icon-menu {
+                    border: 2px solid $font-menu;
+                    border-radius: 50px;
+                    color: $font-menu;
+                }
+            }
+        }
+    }
+}
