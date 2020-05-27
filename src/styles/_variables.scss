@@ -1,6 +1,26 @@
 
+
+//Colors
+
 $primary-color: #2d3436;
-$body-color: #4b4b4b;
+
+$border-icon: #fff;
+
+$font-color: #fff;
+$body-color: #000;
+
+$btn-start: #2ecc71;
+$btn-reset: #e67e22;
 
 
+$weight: (
+    'regular': 300,
+    'medium': 500,
+    'bold': 700
+);
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+}
 

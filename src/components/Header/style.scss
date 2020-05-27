@@ -2,19 +2,18 @@
 
 .header{
     background-color: $primary-color;
-
+    
+    
     nav{
 
-        width: 95%;
+        width: 90%;
         height: 100%;
         max-width: 1280px;
 
-        display: flex;
+        @include flexCenter();
         justify-content: space-between;
-        align-items: center;
 
         margin: auto;
-
 
         div{
             width: 70%;
@@ -31,9 +30,10 @@
         a{  
             width: 100%;
             padding: 2rem;
-            display: flex;
-            align-items: center;
+
+            @include flexCenter();
             justify-content: center;
+            
             text-transform: uppercase;
 
             &:hover{
@@ -41,7 +41,7 @@
             } 
             
             .icon-navbar{
-                border: 2px solid white;
+                border: 2px solid $border-icon;
                 border-radius: 50px;
             }
         }

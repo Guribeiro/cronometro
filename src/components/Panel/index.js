@@ -12,7 +12,7 @@ class Panel extends Component {
                     <ul>
                         <li>
                             <a href="/">
-                                <IoIosTimer size='42' />
+                                <IoIosTimer size='32' />
                                 <span>Cronômetro</span>
                             </a>
 
@@ -20,7 +20,7 @@ class Panel extends Component {
 
                         <li>
                             <a href="/">
-                                <IoIosClock size='42' />
+                                <IoIosClock size='32' />
                                 <span>Relógio</span>
                             </a>
                         </li>
