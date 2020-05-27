@@ -4,6 +4,7 @@ import './global.scss';
 import './App.scss';
 
 import Header from './components/Header';
+import Panel from './components/Panel';
 
 
 
@@ -13,7 +14,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Header/>
-        
+        <Panel />
       </div>
     );
   }
