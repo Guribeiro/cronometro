@@ -12,47 +12,25 @@ class Header extends Component {
                 font: '',
             }
         }
-        this.getColors = this.getColors.bind(this);
+        
     }
-    
-    
-    getColors(){
-        const backcolor = window.getComputedStyle(document.body).getPropertyValue("background-color")
 
-        alert('Cor de fundo: ' + backcolor)
-    }
-    
+   
+
     render() {
         return (
             <div className="header">
-                <div className="primeiro"></div>
                 <nav>
-                    <div className="container-menu">
-                        <ul>
-                            <li>
-                                <a href="/">
-                                    Feriados
-                            </a>
-                            </li>
+                    <div></div>
+                    <section>
+                        <a href="/" >
+                            <WiMoonFirstQuarter className='icon-navbar' size='25' />
+                        </a>
+                        <a href="/">
+                            <FiSidebar size='25' color='white' />
+                        </a>
 
-                            <li>
-                                <a href="/">
-                                    Ferramentas
-                            </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="container-menu-config">
-                        <ul>
-                            <li>
-                                <WiMoonFirstQuarter className='icon-menu' color='white' size='25' onClick={this.getColors}/>
-                            </li>
-
-                            <li>
-                                <FiSidebar size='27' color='white' />
-                            </li>
-                        </ul>
-                    </div>
+                    </section>
                 </nav>
             </div>
         );

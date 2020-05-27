@@ -1,70 +1,53 @@
-$header-color: #535c68;
-$font-menu: #fff;
+@import '../../styles/variables';
 
-@mixin flexDisplay() {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.header{
+    background-color: $primary-color;
 
-@mixin standardFormat() {
-    height: 100%;
-    width: 100%;
-}
+    nav{
 
-.header {
-    background-color: $header-color;
-    width: 100%;
-    @include flexDisplay();
+        width: 95%;
+        height: 100%;
+        max-width: 1280px;
 
-    div {
-        width: 60%;
-    }
-    nav {
-        font-size: 1.1rem;
-        width: 40%;
-        min-width: 678px;
-        height: 8vh;
-        @include flexDisplay();
-        justify-content: space-evenly;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        .container-menu {
-            @include standardFormat();
+        margin: auto;
+
+
+        div{
+            width: 70%;
+            height: 50px;
         }
 
-        .container-menu-config {
-            width: 40%;
+        section{
+            width: 30%;
             height: 100%;
+            display: flex;
+
         }
 
-        a {
-            text-decoration: none;
-            color: white;
+        a{  
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-transform: uppercase;
-            font-size: 1.4rem;
-            padding: 2.4rem;
-            transition: all 250ms linear 0s;
-        }
 
-        ul {
-            @include flexDisplay();
-            @extend .container-menu;
-
-            li {
-                @include flexDisplay();
-                @include standardFormat();
-                cursor: pointer;
-
-                &:hover {
-                    background-color: lighten($header-color, 10);
-                }
-                
-                .icon-menu {
-                    border: 2px solid $font-menu;
-                    border-radius: 50px;
-                    color: $font-menu;
-                }
+            &:hover{
+                background-color: lighten($primary-color, 10);
+            } 
+            
+            .icon-navbar{
+                border: 2px solid white;
+                border-radius: 50px;
             }
         }
+
+        
     }
 }
+
+
