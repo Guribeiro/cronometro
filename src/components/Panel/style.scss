@@ -51,6 +51,13 @@
                 padding: 12px;
                 max-width: 120px;
 
+                button{
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                }
+
                 &:hover {
                     background-color: lighten($body-color, $amount: 10);
                     cursor: pointer;
@@ -127,6 +134,5 @@
                 }
             }
         }
-        
     }
 }
