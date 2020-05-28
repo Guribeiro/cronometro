@@ -102,10 +102,6 @@
                     &:hover {
                         cursor: pointer;
                     }
-
-                    &:active {
-                        transform: translateY(3px);
-                    }
                 }
 
                 .start-button {
@@ -114,6 +110,9 @@
                     &:hover {
                         background-color: darken($btn-start, $amount: 15);
                     }
+                    &:active {
+                        @include activeEffect($btn-start)
+                    }
                 }
 
                 .reset-button {
@@ -121,6 +120,9 @@
 
                     &:hover {
                         background-color: darken($btn-reset, $amount: 15);
+                    }
+                    &:active {
+                        @include activeEffect($btn-reset)
                     }
                 }
             }

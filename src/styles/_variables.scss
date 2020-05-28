@@ -19,8 +19,14 @@ $weight: (
     'bold': 700
 );
 
+
 @mixin flexCenter {
     display: flex;
     align-items: center;
 }
 
+
+@mixin activeEffect ($color) {
+    transform: translateY(1px);
+    background-color: $color;
+}
