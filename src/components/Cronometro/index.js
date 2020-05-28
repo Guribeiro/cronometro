@@ -4,14 +4,36 @@ import './styles.scss';
 import { IoIosTimer, IoIosClock } from 'react-icons/io'
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi'
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Cronometro extends Component {
     constructor(props) {
         super()
         this.state = {
-            timer: 'Cronometro'
+            cronometro: 0
         }
+        this.timer = null;
+        this.startCronometro = this.startCronometro.bind(this);
+        this.redefinirCronometro = this.redefinirCronometro.bind(this);
+    }
+
+    startCronometro() {
+
+        if (this.timer !== null) {
+            clearInterval(this.timer);
+            this.timer = null;
+        } else {
+
+            this.timer = setInterval(() => {
+                const timer = this.state.cronometro;
+                this.setState({ cronometro: timer + 0.01 })
+            }, 10)
+            
+        }
+    }
+
+    redefinirCronometro(){
+        this.setState({cronometro: 0})
     }
 
     render() {
@@ -53,12 +75,12 @@ class Cronometro extends Component {
                     <div className='clock-container'>
 
                         <div className="timer">
-                            <span>{this.state.timer}</span>
+                            <span>{this.state.cronometro.toFixed(2)}</span>
                         </div>
 
                         <div className="buttons">
-                            <button className='reset-button'>Redefinir</button>
-                            <button className='start-button'>Iniciar</button>
+                            <button onClick={this.redefinirCronometro} className='reset-button'>Redefinir</button>
+                            <button onClick={this.startCronometro} className='start-button'>Iniciar</button>
                         </div>
                     </div>
                 </section>
