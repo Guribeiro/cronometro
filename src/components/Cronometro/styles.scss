@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.clock-container {
+    width: 90%;
+    max-width: 980px;
+    min-width: 400px;
+    margin: auto;
+    padding: 12px;
+    color: $font-color;
+
+    @include flexCenter();
+    flex-direction: column;
+
+    .timer {
+        display: block;
+        width: 60%;
+        max-width: 700px;
+        min-width: 350px;
+        margin: 20px auto;
+
+        span {
+            font-size: 82px;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .buttons {
+        width: 260px;
+        border: none;
+        margin-top: 36px;
+
+        @include flexCenter();
+        justify-content: space-between;
+
+        button {
+            width: 47%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: map-get($weight, "medium");
+            border: none;
+            transition: 0.2s;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .start-button {
+            background-color: $btn-start;
+
+            &:hover {
+                background-color: darken($btn-start, $amount: 15);
+            }
+            &:active {
+                @include activeEffect($btn-start)
+            }
+        }
+
+        .reset-button {
+            background-color: $btn-reset;
+
+            &:hover {
+                background-color: darken($btn-reset, $amount: 15);
+            }
+            &:active {
+                @include activeEffect($btn-reset)
+            }
+        }
+    }
+}
