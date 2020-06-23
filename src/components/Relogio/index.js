@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './style.scss';
 
-import { IoIosTimer, IoIosClock } from 'react-icons/io'
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi'
 
-import { Link } from 'react-router-dom';
+import MenuBar from '../../components/MenuBar';
+
 
 class Relogio extends Component {
     constructor(props) {
@@ -16,60 +16,47 @@ class Relogio extends Component {
 
         this.intervalTime = this.intervalTime.bind(this);
         this.mountHour = this.mountHour.bind(this);
-        
+
     }
 
-    mountHour(){
+    mountHour() {
         const date = new Date();
+
+        const hours = (date.getHours() < 10 ? '0' : '') + date.getHours();
+        const minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+        const seconds = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
+
         const hour = {
-            hora: date.getHours(),
-            minutos: date.getMinutes(),
-            segundos: date.getSeconds()
+            hora: hours,
+            minutos: minutes,
+            segundos: seconds
         }
 
         return hour
     }
 
-    intervalTime(){
-        setInterval(() =>{
+    intervalTime() {
+        setInterval(() => {
             const timer = this.mountHour();
-            const {hora, minutos, segundos} = timer;
+            const { hora, minutos, segundos } = timer;
 
             const horaAtual = `${hora}:${minutos}:${segundos}`;
 
-            this.setState({timer: horaAtual})
-        },1000);
+            this.setState({ timer: horaAtual })
+        }, 1000);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.intervalTime();
-        
-    }
 
+    }
 
 
     render() {
         return (
 
             <div className='panel-container'>
-                <section className='menu-bar'>
-                    <ul>
-                        <li className='link-cronometro'>
-                            <Link to="/cronometro">
-                                <IoIosTimer size='32' />
-                                <span>Cronômetro</span>
-                            </Link>
-
-                        </li>
-
-                        <li className='link-relogio'>
-                            <Link to="/relogio">
-                                <IoIosClock size='32' />
-                                <span>Relógio</span>
-                            </Link>
-                        </li>
-                    </ul>
-                </section>
+                <MenuBar />
                 <section className='content'>
                     <div className="controls">
                         <div className="option">
