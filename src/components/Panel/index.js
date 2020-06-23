@@ -13,7 +13,7 @@ class Panel extends Component {
 
     render() {
         return (
-            <Routes/>
+            <Routes />
         );
     }
 }
