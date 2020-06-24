@@ -11,7 +11,6 @@ export default function Routes() {
 
         <BrowserRouter>
             <Switch>
-
                 <Route exact path='/' component={Home} />
                 <Route path='/cronometro' component={Cronometro} />
                 <Route path='/relogio' component={Relogio} />

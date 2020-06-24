@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './style.scss';
 
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi'
 
+import Header from '../Header';
 import MenuBar from '../../components/MenuBar';
 
 
@@ -11,11 +12,12 @@ class Relogio extends Component {
         super()
         this.state = {
             timer: '',
-            fontsize: 0
+            sidebar: false,
         }
 
         this.intervalTime = this.intervalTime.bind(this);
         this.mountHour = this.mountHour.bind(this);
+        this.showSideBar = this.showSideBar.bind(this);
 
     }
 
@@ -27,9 +29,9 @@ class Relogio extends Component {
         const seconds = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
 
         const hour = {
-            hora: hours,
-            minutos: minutes,
-            segundos: seconds
+            hours,
+            minutes,
+            seconds
         }
 
         return hour
@@ -38,9 +40,9 @@ class Relogio extends Component {
     intervalTime() {
         setInterval(() => {
             const timer = this.mountHour();
-            const { hora, minutos, segundos } = timer;
+            const { hours, minutes, seconds } = timer;
 
-            const horaAtual = `${hora}:${minutos}:${segundos}`;
+            const horaAtual = `${hours}:${minutes}:${seconds}`;
 
             this.setState({ timer: horaAtual })
         }, 1000);
@@ -51,35 +53,56 @@ class Relogio extends Component {
 
     }
 
+    showSideBar() {
+
+        const { sidebar } = this.state;
+
+        if (sidebar) {
+            this.setState({ sidebar: false });
+        } else {
+            this.setState({ sidebar: true });
+        }
+
+    }
+
 
     render() {
+
+        const { sidebar } = this.state;
         return (
 
-            <div className='panel-container'>
-                <MenuBar />
-                <section className='content'>
-                    <div className="controls">
-                        <div className="option">
-                            <button>
-                                <FiZoomIn size='24' />
-                            </button>
-                        </div>
-                        <div className="option">
-                            <button>
-                                <FiZoomOut size='24' />
-                            </button>
-                        </div>
-
-                    </div>
-                    <div className='clock-container'>
-                        <div className="timer">
-                            <span id='clock'>{this.state.timer}</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <Fragment>
+                <Header showBar={this.showSideBar} />
 
 
+                <div className='panel-container'>
+                    {
+                        sidebar ? <MenuBar /> : ''
+                    }
+
+                    <section className='content'>
+                        <div className="controls">
+                            <div className="option">
+                                <button>
+                                    <FiZoomIn size='24' />
+                                </button>
+                            </div>
+                            <div className="option">
+                                <button>
+                                    <FiZoomOut size='24' />
+                                </button>
+                            </div>
+
+                        </div>
+                        <div className='clock-container'>
+                            <div className="timer">
+                                <span id='clock'>{this.state.timer}</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </Fragment>
         );
     }
 }

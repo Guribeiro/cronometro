@@ -7,7 +7,7 @@ class Panel extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            timer: 'TIMER HERE'
+            timer: ''
         }
     }
 

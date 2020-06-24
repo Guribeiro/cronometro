@@ -10,22 +10,15 @@ class Header extends Component {
                 background: '',
                 header: '',
                 font: '',
-            }, 
+            },
             sidebar: false,
         }
 
-        this.showSideBar = this.showSideBar.bind(this);
+        this.showSide = this.showSide.bind(this);
     }
 
-    showSideBar(){
-        const {sidebar} = this.state;
-
-        if(sidebar){
-            this.setState({sidebar: false});
-        }else{
-
-            this.setState({sidebar: true});
-        }
+    showSide() {
+        this.props.showBar();
 
     }
 
@@ -38,8 +31,8 @@ class Header extends Component {
                         <button>
                             <WiMoonFirstQuarter className='icon-navbar' size='25' />
                         </button>
-                        <button>
-                            <FiSidebar size='25' color='white' onClick={this.showSideBar} />
+                        <button onClick={() => this.showSide()}>
+                            <FiSidebar size='25' color='white' />
                         </button>
 
                     </section>
