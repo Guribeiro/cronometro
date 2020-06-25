@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.controls {
+    @include flexCenter();
+    justify-content: space-evenly;
+
+    width: 140px;
+    max-width: 200px;
+    margin-left: auto;
+
+    .option {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        max-width: 120px;
+
+        button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        &:hover {
+            background-color: lighten($body-color, $amount: 10);
+            cursor: pointer;
+        }
+    }
+}
