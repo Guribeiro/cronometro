@@ -10,7 +10,12 @@ class Cronometro extends Component {
     constructor(props) {
         super()
         this.state = {
-            cronometro: 0,
+            miliSeconds: 0,
+            seconds: 0,
+            minutes: 0,
+
+            stopwatch: 0,
+
             btnStart: 'Iniciar',
             sidebar: true
         }
@@ -23,25 +28,60 @@ class Cronometro extends Component {
 
     startCronometro() {
 
-        if (this.timer !== null) {
+        if (this.timer) {
 
             clearInterval(this.timer);
             this.timer = null;
             this.setState({ btnStart: 'Iniciar' })
+
         } else {
 
             this.timer = setInterval(() => {
-                const timer = this.state.cronometro;
+                const { miliSeconds, seconds, minutes } = this.state;
+
                 this.setState({
-                    cronometro: timer + 0.01,
+                    miliSeconds: miliSeconds + 1,
                     btnStart: 'Pausar'
                 })
+
+                if (miliSeconds > 99) {
+                   
+                    this.setState({
+                        miliSeconds: 0,
+                        seconds: seconds + 1
+                    })
+                }
+
+                if (seconds > 59) {
+                    this.setState({
+                        seconds: 0,
+                        minutes: minutes + 1
+                    })
+                }
+
+                const stopwatch = {
+                    miliSeconds,
+                    seconds,
+                    minutes,
+
+                }
+
+
+                this.setState({
+                    stopwatch: stopwatch
+                })
+
             }, 10)
         }
     }
-   
+
     redefinirCronometro() {
-        this.setState({ cronometro: 0 })
+
+
+        this.setState({
+            miliSeconds: 0,
+            seconds: 0
+        })
     }
 
     showSideBar() {
@@ -59,7 +99,11 @@ class Cronometro extends Component {
 
     render() {
 
-        const { sidebar, btnStart } = this.state;
+        const { sidebar, btnStart, stopwatch } = this.state;
+
+        const { miliSeconds, seconds, minutes } = stopwatch;
+
+
         return (
             <Fragment>
                 <Header showBar={this.showSideBar} />
@@ -71,11 +115,12 @@ class Cronometro extends Component {
 
                     <section className='content'>
                         <Controls />
-
                         <div className='clock-container'>
 
                             <div className="timer">
-                                <span>{this.state.cronometro.toFixed(2)}</span>
+                                <span>{minutes}</span>
+                                <span>{seconds}</span>
+                                <span>{miliSeconds}</span>
                             </div>
 
                             <div className="buttons">

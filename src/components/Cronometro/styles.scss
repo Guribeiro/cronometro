@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .clock-container {
     width: 90%;
@@ -12,16 +12,20 @@
     flex-direction: column;
 
     .timer {
-       
+
+        border: 1px solid red;
         display: block;
         width: 60%;
+
         max-width: 700px;
         min-width: 350px;
         margin: 20px auto;
 
+
         span {
+            border: 1px solid red;;
             font-size: 122px;
-            display: block;
+
             text-align: center;
         }
     }
@@ -54,7 +58,7 @@
                 background-color: darken($btn-start, $amount: 15);
             }
             &:active {
-                @include activeEffect($btn-start)
+                @include activeEffect($btn-start);
             }
         }
 
@@ -65,7 +69,7 @@
                 background-color: darken($btn-reset, $amount: 15);
             }
             &:active {
-                @include activeEffect($btn-reset)
+                @include activeEffect($btn-reset);
             }
         }
     }
