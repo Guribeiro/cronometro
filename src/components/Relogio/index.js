@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './style.scss';
 
-import { FiZoomIn, FiZoomOut } from 'react-icons/fi'
-
 import Header from '../Header';
-import MenuBar from '../../components/MenuBar';
+import MenuBar from '../MenuBar';
+import Controls from '../Controls';
 
 
 class Relogio extends Component {
@@ -12,7 +11,7 @@ class Relogio extends Component {
         super()
         this.state = {
             timer: '',
-            sidebar: false,
+            sidebar: true,
         }
 
         this.intervalTime = this.intervalTime.bind(this);
@@ -54,17 +53,17 @@ class Relogio extends Component {
     }
 
     showSideBar() {
-
         const { sidebar } = this.state;
 
         if (sidebar) {
             this.setState({ sidebar: false });
+
         } else {
             this.setState({ sidebar: true });
+
         }
 
     }
-
 
     render() {
 
@@ -81,19 +80,7 @@ class Relogio extends Component {
                     }
 
                     <section className='content'>
-                        <div className="controls">
-                            <div className="option">
-                                <button>
-                                    <FiZoomIn size='24' />
-                                </button>
-                            </div>
-                            <div className="option">
-                                <button>
-                                    <FiZoomOut size='24' />
-                                </button>
-                            </div>
-
-                        </div>
+                        <Controls />
                         <div className='clock-container'>
                             <div className="timer">
                                 <span id='clock'>{this.state.timer}</span>

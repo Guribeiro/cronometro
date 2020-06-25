@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './styles.scss';
 
-import { FiZoomIn, FiZoomOut } from 'react-icons/fi'
-
 import Header from '../Header';
-import MenuBar from '../../components/MenuBar';
+import MenuBar from '../MenuBar';
+import Controls from '../Controls';
 
 
 class Cronometro extends Component {
@@ -12,9 +11,11 @@ class Cronometro extends Component {
         super()
         this.state = {
             cronometro: 0,
-            sidebar: false
+            btnStart: 'Iniciar',
+            sidebar: true
         }
         this.timer = null;
+
         this.startCronometro = this.startCronometro.bind(this);
         this.redefinirCronometro = this.redefinirCronometro.bind(this);
         this.showSideBar = this.showSideBar.bind(this);
@@ -26,15 +27,19 @@ class Cronometro extends Component {
 
             clearInterval(this.timer);
             this.timer = null;
+            this.setState({ btnStart: 'Iniciar' })
         } else {
 
             this.timer = setInterval(() => {
                 const timer = this.state.cronometro;
-                this.setState({ cronometro: timer + 0.01 })
+                this.setState({
+                    cronometro: timer + 0.01,
+                    btnStart: 'Pausar'
+                })
             }, 10)
         }
     }
-
+   
     redefinirCronometro() {
         this.setState({ cronometro: 0 })
     }
@@ -54,7 +59,7 @@ class Cronometro extends Component {
 
     render() {
 
-        const { sidebar } = this.state;
+        const { sidebar, btnStart } = this.state;
         return (
             <Fragment>
                 <Header showBar={this.showSideBar} />
@@ -65,19 +70,7 @@ class Cronometro extends Component {
                     }
 
                     <section className='content'>
-                        <div className="controls">
-                            <div className="option">
-                                <a href="/">
-                                    <FiZoomIn size='24' />
-                                </a>
-                            </div>
-                            <div className="option">
-                                <a href="/">
-                                    <FiZoomOut size='24' />
-                                </a>
-                            </div>
-
-                        </div>
+                        <Controls />
 
                         <div className='clock-container'>
 
@@ -87,7 +80,7 @@ class Cronometro extends Component {
 
                             <div className="buttons">
                                 <button onClick={this.redefinirCronometro} className='reset-button'>Redefinir</button>
-                                <button onClick={this.startCronometro} className='start-button'>Iniciar</button>
+                                <button onClick={this.startCronometro} className='start-button'>{btnStart}</button>
                             </div>
                         </div>
                     </section>
