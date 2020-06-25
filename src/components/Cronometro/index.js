@@ -45,7 +45,7 @@ class Cronometro extends Component {
                 })
 
                 if (miliSeconds > 99) {
-                   
+
                     this.setState({
                         miliSeconds: 0,
                         seconds: seconds + 1
@@ -59,28 +59,16 @@ class Cronometro extends Component {
                     })
                 }
 
-                const stopwatch = {
-                    miliSeconds,
-                    seconds,
-                    minutes,
-
-                }
-
-
-                this.setState({
-                    stopwatch: stopwatch
-                })
-
             }, 10)
         }
     }
 
     redefinirCronometro() {
 
-
         this.setState({
             miliSeconds: 0,
-            seconds: 0
+            seconds: 0,
+            minutes: 0
         })
     }
 
@@ -99,10 +87,7 @@ class Cronometro extends Component {
 
     render() {
 
-        const { sidebar, btnStart, stopwatch } = this.state;
-
-        const { miliSeconds, seconds, minutes } = stopwatch;
-
+        const { sidebar, btnStart, miliSeconds, seconds, minutes } = this.state;
 
         return (
             <Fragment>
@@ -118,9 +103,19 @@ class Cronometro extends Component {
                         <div className='clock-container'>
 
                             <div className="timer">
-                                <span>{minutes}</span>
-                                <span>{seconds}</span>
-                                <span>{miliSeconds}</span>
+                                <p>
+                                    <span>
+                                        {minutes < 10 ? '0' : ''}{minutes}
+                                    </span>
+                                    :
+                                    <span>
+                                        {seconds < 10 ? '0' : ''}{seconds}
+                                    </span>
+                                    :
+                                    <span>
+                                        {miliSeconds < 10 ? '0' : ''}{miliSeconds}
+                                    </span>
+                                </p>
                             </div>
 
                             <div className="buttons">
