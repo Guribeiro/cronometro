@@ -12,22 +12,16 @@
     flex-direction: column;
 
     .timer {
-        width: 60%;
-
-        max-width: 700px;
-        min-width: 350px;
         margin: 20px auto;
 
         p {
             font-size: 122px;
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: center;
 
             span {
                 width: 28%;
-                font-size: inherit;
-                text-align: center;
             }
         }
     }
