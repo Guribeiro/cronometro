@@ -1,22 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h1 align='center'>Projeto Cronômetro</h1>
 
 
-## Start and Reset any time
+
+<h2 align='center'>
+    <p>
+        Projeto realizado com ReactJS e o Pré-processador CSS: SASS
+    <p>
+</h2>
+
+<h3>
+<a href='https://cronometro.vercel.app'>Já esta no ar</a>
+</h3>
+
+<p>Esse projeto tem como objetivo praticar  alguns conhecimentos já obtidos 
+e também por em prática novos conceitos que venho estudando.
+</p>
+
+## ''... Start and Reset any time''
 
  <img src="./src/assets/readme/stopwatch.gif" alt="cronometro" width='900px' >
 
+
+### Sinta-se livre para contribuir se achar necessário. Toda e qualquer ajuda é muito bem-vinda.
+### <i>A troca de experiências e conhecimento é essencial para a evolução profissional.</i>
 
 
 
