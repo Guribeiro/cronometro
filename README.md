@@ -15,7 +15,7 @@ You will also see any lint errors in the console.
 
 ## Start and Reset any time
 
- <img src="./src/assets/readme/gif.gif" alt="cronometro" >
+ <img src="./src/assets/readme/stopwatch.gif" alt="cronometro" width='900px' >
 
 
 
