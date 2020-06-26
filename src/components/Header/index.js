@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { WiMoonFirstQuarter } from 'react-icons/wi';
-import { FiSidebar } from 'react-icons/fi';
+import { FiSidebar, FiArrowLeft } from 'react-icons/fi';
 
 class Header extends Component {
     constructor(props) {
@@ -24,9 +24,13 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="header">
+            <div className="header">    
                 <nav>
-                    <div></div>
+                    <div>
+                        <a href='/'>
+                            <FiArrowLeft size='25' color='white'/>
+                        </a>
+                    </div>
                     <section>
                         <button>
                             <WiMoonFirstQuarter className='icon-navbar' size='25' />

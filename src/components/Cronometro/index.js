@@ -32,7 +32,8 @@ class Cronometro extends Component {
 
             clearInterval(this.timer);
             this.timer = null;
-            this.setState({ btnStart: 'Iniciar' })
+            this.setState({ btnStart: 'Iniciar' });
+            
 
         } else {
 
@@ -111,8 +112,8 @@ class Cronometro extends Component {
                                     <span>
                                         {seconds < 10 ? '0' : ''}{seconds}
                                     </span>
-                                    :
-                                    <span>
+                                    ,
+                                    <span className='miliseconds'>
                                         {miliSeconds < 10 ? '0' : ''}{miliSeconds}
                                     </span>
                                 </p>
